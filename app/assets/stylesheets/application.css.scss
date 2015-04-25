@@ -14,26 +14,77 @@
  *= require_self
  */
 
- body {
-  font-family: Roboto;
- }
+$font: Roboto !important;
+
+$base-color: #00afd6;
+$background-color: #e4f7fb;
+$secondary-color: #c5eef7;
+
+$site-width: 900px;
+
+$shadow: 0 0 5px #ccc;
+
+body {
+  background: $background-color;
+}
+
+body, body p {
+  font-size: 14px;
+  font-family: $font;
+}
+
+main {
+  background: none;
+  > .container {
+    background: $secondary-color;
+    margin-top: 30px;
+    box-shadow: $shadow;
+    > h1, > h2, > h3 {
+      font-size: 24px;
+      font-family: $font;
+      font-weight: bold;
+      color: white;
+      font: $font 16px;
+      margin: 0 -15px 10px;
+      padding: 10px 15px;
+      background: $base-color;
+    }
+  }
+}
+
+.container {
+  max-width: $site-width;
+}
 
 .navbar-default {
+  background: $base-color;
+  border: 0;
+  box-shadow: $shadow;
   a {
     font-size: 18px;
     font-family: Roboto;
   }
+  .navbar-nav > li > a {
+    color: white;
+    &:hover, &:focus {
+      color: $base-color;
+      background: white;
+    }
+  }
   .navbar-brand {
+    background: white;
     font-family: Arvo;
     font-size: 30px;
+    color: $base-color;
+    &:hover, &:focus {
+      background: $base-color;
+      color: white;
+    }
   }
 }
 
-ul.nav.navbar-nav {
-	li:hover {
-		a {
-			color: #3732FF;
-			font-size: 1.5em;
-		}
-	}
+.alert {
+  max-width: $site-width;
+  margin: 30px auto 0;
+  border-radius: 0;
 }
