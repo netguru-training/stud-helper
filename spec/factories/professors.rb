@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :professor do
-    firstname "MyString"
-lastname "MyString"
+    first_name "MyString"
+last_name "MyString"
 title "MyString"
   end
 

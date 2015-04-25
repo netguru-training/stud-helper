@@ -1,8 +1,8 @@
 class CreateProfessors < ActiveRecord::Migration
   def change
     create_table :professors do |t|
-      t.string :firstname
-      t.string :lastname
+      t.string :first_name
+      t.string :last_name
       t.string :title
 
       t.timestamps
