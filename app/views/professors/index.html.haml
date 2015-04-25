@@ -17,9 +17,10 @@
         %td= professor.last_name
         %td= professor.title
         %td= link_to 'Show', professor
-        %td= link_to 'Edit', edit_professor_path(professor)
-        %td= link_to 'Destroy', professor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if user_admin?
+          %td= link_to 'Edit', edit_professor_path(professor)
+          %td= link_to 'Destroy', professor, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Professor', new_professor_path
+- if user_admin?
+  = link_to 'New Professor', new_professor_path
