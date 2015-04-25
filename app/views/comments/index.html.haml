@@ -9,7 +9,7 @@
       %th
 
   %tbody
-    - @comments.each do |comment|
+    - comments.each do |comment|
       %tr
         %td= comment.content
         %td= link_to 'Show', comment
