@@ -1,4 +1,4 @@
 class Professor < ActiveRecord::Base
-  validates :firstname, presence: true;
-  validates :lastname, presence: true;
+  validates :first_name, presence: true;
+  validates :last_name, presence: true;
 end
