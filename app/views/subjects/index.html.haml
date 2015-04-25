@@ -10,6 +10,9 @@
       %th
       %th
 
+  - if current_user.admin?
+    = link_to "Add new subject", new_subject_path
+
   %tbody
     - subjects.each do |subject|
       %tr

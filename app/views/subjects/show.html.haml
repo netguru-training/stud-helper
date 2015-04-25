@@ -2,14 +2,14 @@
 
 %p
   %b Name:
-  = @subject.name
+  = subject.name
 %p
   %b Short name:
-  = @subject.short_name
+  = subject.short_name
 %p
   %b Description:
-  = @subject.description
+  = subject.description
 
-= link_to 'Edit', edit_subject_path(@subject)
+= link_to 'Edit', edit_subject_path(subject)
 \|
 = link_to 'Back', subjects_path
