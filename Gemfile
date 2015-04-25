@@ -47,6 +47,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'decent_exposure'
 gem "binding_of_caller"
+gem 'ffaker'
 
 group :development do
   gem 'better_errors'

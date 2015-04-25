@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
+
+  protected
+    def check_if_admin!
+      unless current_user.admin?
+        flash[:error] = "You don't have admin permission."
+        redirect_to root_path
+      end
+    end
 end
