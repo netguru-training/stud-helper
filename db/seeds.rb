@@ -10,3 +10,13 @@ User.create!(email: "admin@example.com",
   password: "admin123",
   password_confirmation: "admin123",
   role: "admin")
+
+
+
+
+(0..20).each do
+	name = Faker::Lorem.sentence
+	short_name = Faker::Lorem.word
+	description = Faker::Lorem.paragraph
+	Subject.create!(name: name, short_name: short_name, description: description)
+end
