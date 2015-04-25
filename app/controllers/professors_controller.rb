@@ -3,7 +3,8 @@ class ProfessorsController < ApplicationController
   before_action :check_if_admin!, except: [:index, :show, :upvote, :downvote]
   expose(:professors)
   expose(:professor, attributes: :professor_params)
-  expose(:comment){Comment.new}
+  expose(:comments)
+  expose(:comment) { Comment.new }
 
   respond_to :html
   

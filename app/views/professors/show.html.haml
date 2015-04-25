@@ -25,7 +25,11 @@
 
 %p
   %b Comments:
-  = professor.comments
+%table
+  - professor.comments.each do |comment|
+    %tr
+      %td= comment.user.name
+      %td= comment.content
 %p
   %b Add comment:
   = render 'comments/form'

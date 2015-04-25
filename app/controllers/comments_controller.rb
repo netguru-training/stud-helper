@@ -1,47 +1,51 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
-  respond_to :html
+  expose(:comments)
+  expose(:comment, attributes: :comment_params)
 
-  def index
-    @comments = Comment.all
-    respond_with(@comments)
-  end
+  # def index
+  #   respond_with(comments)
+  # end
 
   def show
-    respond_with(@comment)
+    respond_with(comment.owner)
   end
 
   def new
-    @comment = Comment.new
-    respond_with(@comment)
-  end
-
-  def edit
+    comment = Comment.new
+    respond_with(comment.owner)
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    flash[:notice] = 'Comment was successfully created.' if @comment.save
-    respond_with(@comment)
+    comment.user = current_user
+    comment.owner = fetch_owner
+    if comment.save
+      flash[:notice] = 'Comment was successfully created.'
+      redirect_to(professor_path(comment.owner))
+    else
+      redirect_to root_path #WIP
+    end
   end
 
   def update
-    flash[:notice] = 'Comment was successfully updated.' if @comment.update(comment_params)
-    respond_with(@comment)
+    comment.user_id = current_user.id
+    flash[:notice] = 'Comment was successfully updated.' if comment.update(comment_params)
+    respond_with(comment.owner)
   end
 
   def destroy
     @comment.destroy
-    respond_with(@comment)
+    respond_with(comment.owner)
   end
 
   private
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    def comment_params
-      params.require(:comment).permit(:content)
-    end
+  def fetch_owner
+    Professor.find_by(id: params[:professor_id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end
