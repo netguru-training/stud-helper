@@ -3,11 +3,15 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get 'professors/:id/upvote' => 'professors#upvote', as: :upvote_professor
+  get 'professors/:id/downvote' => 'professors#downvote', as: :downvote_professor
+
   resources :subjects
 
   root to: 'visitors#index'
   devise_for :users
   resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

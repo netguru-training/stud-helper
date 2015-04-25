@@ -8,10 +8,14 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-    def check_if_admin!
-      unless current_user.admin?
-        flash[:error] = "You don't have admin permission."
-        redirect_to root_path
-      end
+  def check_if_admin!
+    unless current_user.admin?
+      flash[:error] = "You don't have admin permission."
+      redirect_to root_path
     end
+  end
+
+  def already_voted(resource)
+    flash[:danger] = "Sorry, you had already voted this #{resource.class.name}"
+  end
 end

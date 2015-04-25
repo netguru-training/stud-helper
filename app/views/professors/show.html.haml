@@ -9,13 +9,27 @@
 %p
   %b Title:
   = professor.title
-  
+
+%p
+  %b Likes:
+  = professor.get_likes.size
+%p
+  %b Dislikes:
+  = professor.get_dislikes.size
+
+%div
+  %a{:href => upvote_professor_path(professor), :class => 'btn btn-default'}
+    .span.glyphicon.glyphicon-thumbs-up
+  %a{:href => downvote_professor_path(professor), :class => 'btn btn-default'}
+    .span.glyphicon.glyphicon-thumbs-down
+
 %p
   %b Comments:
   = professor.comments
 %p
   %b Add comment:
   = render 'comments/form'
+
 = link_to 'Edit', edit_professor_path(professor)
 \|
 = link_to 'Back', professors_path
