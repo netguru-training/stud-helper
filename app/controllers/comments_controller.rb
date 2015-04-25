@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
+    comment.destroy
     respond_with(comment.owner)
   end
 
