@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :professors
+  resources :professors do
+    resources :comments
+  end
 
   resources :subjects
 
