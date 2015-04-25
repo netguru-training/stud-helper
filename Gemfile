@@ -50,6 +50,7 @@ gem 'simple_form'
 gem 'decent_exposure'
 gem "binding_of_caller"
 gem 'ffaker'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development do
   gem 'better_errors'

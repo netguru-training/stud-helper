@@ -6,4 +6,6 @@ class Professor < ActiveRecord::Base
   validates :first_name, presence: true;
   validates :last_name, presence: true;
   validates :title, presence: true;
+
+  acts_as_votable
 end
