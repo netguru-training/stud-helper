@@ -3,6 +3,8 @@ class Subject < ActiveRecord::Base
 	has_many :subject_items
 	has_many :comments, as: :owner
 
+	accepts_nested_attributes_for :subject_items
+
 	validates :name, presence: true,
 		uniqueness: true
 

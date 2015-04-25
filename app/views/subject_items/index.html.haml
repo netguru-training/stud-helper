@@ -1,0 +1,16 @@
+%h1 Listing subjects items
+
+%table.table
+  %thead
+    %tr
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - subject.subject_items.each do |subject|
+      %tr
+        %td= subject.description
+
+%br

@@ -1,6 +1,6 @@
 %h1 Listing subjects
 
-%table
+%table.table
   %thead
     %tr
       %th Name
@@ -11,7 +11,7 @@
       %th
 
   - if current_user.admin?
-    = link_to "Add new subject", new_subject_path
+    = link_to "Add new subject", new_subject_path, class: "btn btn-primary"
 
   %tbody
     - subjects.each do |subject|
@@ -20,9 +20,8 @@
         %td= subject.short_name
         %td= subject.description
         %td= link_to 'Show', subject
-        %td= link_to 'Edit', edit_subject_path(subject)
-        %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if current_user.admin?
+          %td= link_to 'Edit', edit_subject_path(subject)
+          %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Subject', new_subject_path

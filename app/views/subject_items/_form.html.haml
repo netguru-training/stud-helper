@@ -1,0 +1,8 @@
+= simple_form_for subject, url: subject_subject_items_path, method: :post do |sub|
+	= sub.simple_fields_for (subject_item) do |f|
+		= f.error_notification
+		
+		.form-inputs
+			= f.input :description
+		.form-actions
+			= f.button :submit

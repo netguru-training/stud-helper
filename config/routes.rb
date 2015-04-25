@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :professors
 
-  resources :subjects
+  resources :subjects do
+    resources :subject_items do
+      
+    end
+  end
 
   root to: 'visitors#index'
   devise_for :users
