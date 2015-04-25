@@ -1,5 +1,5 @@
 class Subject < ActiveRecord::Base
-	has_many_and_belongs_to :professors
+	has_and_belongs_to_many :professors
 	has_many :subject_items
 	has_many :comments
 
