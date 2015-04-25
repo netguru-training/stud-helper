@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :subject do
-    name "MyString"
-short_name "MyString"
-description "MyText"
+    name { FFaker::App.name }
+    short_name { FFaker::Lorem.sentence }
+    description { FFaker::Lorem.sentence }
   end
-
 end

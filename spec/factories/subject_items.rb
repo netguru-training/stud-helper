@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :subject_item do
-    description "MyString"
+    description { FFaker::Lorem.sentence }
   end
-
 end

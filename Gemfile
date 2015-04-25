@@ -46,6 +46,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'simple_form'
 gem 'decent_exposure'
+gem 'ffaker'
 
 group :development do
   gem 'better_errors'
