@@ -70,7 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def user_params
-    accessible = [:name, :email]
+    accessible = [:name, :email, :picture]
     accessible << [:password, :password_confirmation] if params[:user][:password].any?
     params.require(:user).permit(accessible)
   end
