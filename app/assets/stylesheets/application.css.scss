@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+  font-family: Roboto;
+ }
+
+.navbar-default {
+  a {
+    font-size: 18px;
+    font-family: Roboto;
+  }
+  .navbar-brand {
+    font-family: Arvo;
+    font-size: 30px;
+  }
+}
