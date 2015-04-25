@@ -53,6 +53,9 @@ gem "binding_of_caller"
 gem 'ffaker'
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'omniauth-facebook'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
