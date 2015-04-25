@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
     comment.user = current_user
     comment.owner = fetch_owner
     if comment.save
-      flash[:notice] = 'Comment was successfully created.'
       redirect_to(professor_path(comment.owner))
     else
       redirect_to root_path #WIP
@@ -30,7 +29,7 @@ class CommentsController < ApplicationController
 
   def update
     comment.user_id = current_user.id
-    flash[:notice] = 'Comment was successfully updated.' if comment.update(comment_params)
+    comment.update(comment_params)
     respond_with(comment.owner)
   end
 
