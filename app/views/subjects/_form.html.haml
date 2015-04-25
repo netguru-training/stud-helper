@@ -1,0 +1,10 @@
+= simple_form_for(@subject) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :short_name
+    = f.input :description
+
+  .form-actions
+    = f.button :submit
