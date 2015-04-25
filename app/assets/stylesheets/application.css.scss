@@ -28,3 +28,12 @@
     font-size: 30px;
   }
 }
+
+ul.nav.navbar-nav {
+	li:hover {
+		a {
+			color: #3732FF;
+			font-size: 1.5em;
+		}
+	}
+}
