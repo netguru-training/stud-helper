@@ -16,6 +16,11 @@ class SubjectItemsController < ApplicationController
 		end
 	end
 
+	def destroy
+		SubjectItem.find(params[:id]).destroy
+		redirect_to subject_subject_items_path(subject.id)
+	end
+
 	private
 
   def subject_item_params

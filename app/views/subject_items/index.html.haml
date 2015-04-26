@@ -9,9 +9,11 @@
       %th
 
   %tbody
-    - subject.subject_items.each do |subject|
+    - subject.subject_items.each do |subject_item|
       %tr
-        %td= subject.description
-        %td= link_to subject.item.to_s.split("/").last, subject.item.url
+        %td= subject_item.description
+        %td= link_to subject_item.item.to_s.split("/").last, subject_item.item.url
+        - if current_user && current_user.admin?
+          %td= link_to 'Delete', subject_subject_item_path(subject.id, subject_item.id), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
 
 %br
