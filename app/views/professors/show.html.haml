@@ -1,17 +1,16 @@
 %p#notice= notice
 
-%p
-  %b First name:
-  = professor.first_name
-%p
-  %b Last name:
-  = professor.last_name
-%p
-  %b Title:
-  = professor.title
-%p
-  %b Subjects:
-  = professor.subjects.join(', ') 
+%table.table
+  %tr
+    %th First name
+    %th Last name
+    %th Title
+    %th Subjects
+  %tr
+    %td= professor.first_name
+    %td= professor.last_name
+    %td= professor.title
+    %td= professor.subjects.join(', ') 
 
 %p
   %b Likes:
