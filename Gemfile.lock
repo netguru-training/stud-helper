@@ -44,6 +44,8 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap-social-rails (4.8.0)
+      railties (>= 3.1)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -182,6 +184,8 @@ GEM
     fog-xml (0.1.1)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     groupdate (2.4.0)
       activesupport (>= 3)
@@ -363,6 +367,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bootstrap-social-rails
   capybara
   carrierwave
   chartkick
@@ -376,6 +381,7 @@ DEPENDENCIES
   faker
   ffaker
   fog
+  font-awesome-rails
   groupdate
   haml-rails
   html2haml

@@ -58,6 +58,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'net-ssh'
 gem 'chartkick'
 gem 'groupdate'
+gem 'bootstrap-social-rails'
+gem "font-awesome-rails"
 
 group :development do
   gem 'better_errors'
