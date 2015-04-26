@@ -52,6 +52,7 @@ gem 'simple_form'
 gem 'decent_exposure'
 gem "binding_of_caller"
 gem 'ffaker'
+gem 'faker'
 gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'omniauth-facebook'
@@ -79,7 +80,6 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'rspec-rails'
 end
 
