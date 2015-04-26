@@ -6,6 +6,7 @@
       %th First name
       %th Last name
       %th Title
+      %th % votes
       %th
       - if admin?
         %th
@@ -17,6 +18,7 @@
         %td= professor.first_name
         %td= professor.last_name
         %td= professor.title
+        %td= professor.vote_average
         %td= button_to 'Show', professor
         - if admin?
           %td= button_to 'Edit', edit_professor_path(professor)

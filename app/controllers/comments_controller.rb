@@ -38,7 +38,9 @@ class CommentsController < ApplicationController
 
   def destroy
     comment.destroy
-    respond_with(comment.owner)
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   private

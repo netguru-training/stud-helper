@@ -181,6 +181,13 @@ form {
   }
 }
 
+a.comment_link {
+  color: $base-color;
+  &:hover, &:focus, &:active {
+    background: none;
+  }
+}
+
 .votes_box {
   color: $base-color;
   vertical-align: middle;

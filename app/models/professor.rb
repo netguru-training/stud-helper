@@ -9,7 +9,7 @@ class Professor < ActiveRecord::Base
   validates :title, presence: true;
 
   def vote_average
-    "%.2f" % (get_likes.size.to_f / ( get_likes.size + get_dislikes.size ))
+    "%.2f" % (get_likes.size.to_f*100 / ( get_likes.size + get_dislikes.size ))
   end
 
   acts_as_votable

@@ -1,5 +1,7 @@
-.comment
+.comment{:id => 'comment_' + comment.id.to_s}
   .comment_header
     %span.comment_author= comment.user.name 
+    -if check_user_id(comment.user.id) || admin?
+      = link_to 'Delete', [professor, comment], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'comment_link comment_delete', :data => {:id => comment.id }
     %span.comment_date= comment.created_at.strftime("%H:%M, %d-%m-%Y")
   .comment_content= comment.content
