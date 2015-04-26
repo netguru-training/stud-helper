@@ -16,6 +16,7 @@ RSpec.describe SubjectsController, type: :controller do
 		before do
 			sign_in user
 		end
+
 		context "user is not an admin" do
 			describe "GET #index" do
 				it "should return 200" do
@@ -54,6 +55,16 @@ RSpec.describe SubjectsController, type: :controller do
 					expect{
 						post :create, {subject: correct_subject_attributes}
 					}.to change{Subject.count}.from(0).to(1)
+				end
+			end
+
+			describe "update subject" do
+				before do
+					@subject = Subject.create!(correct_subject_attributes)
+				end
+				it "should update subject data" do
+					correct_subject_attributes[:name] = "changed name"
+					put :update, {id: @subject.to_param, subject: correct_subject_attributes}
 				end
 			end
 
