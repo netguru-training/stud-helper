@@ -62,6 +62,7 @@ gem 'groupdate'
 gem 'pg_search'
 gem 'bootstrap-social-rails'
 gem "font-awesome-rails"
+gem 'will_paginate', '~> 3.0.6'
 
 group :development do
   gem 'better_errors'

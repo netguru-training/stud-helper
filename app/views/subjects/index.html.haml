@@ -15,6 +15,8 @@
     = link_to "Add new subject", new_subject_path, class: "btn btn-primary"
 
   %tbody
+    %br
+    = will_paginate
     - @subjects.each do |subject|
       %tr
         %td= subject.name

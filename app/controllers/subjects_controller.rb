@@ -7,7 +7,7 @@ class SubjectsController < ApplicationController
     if params["/subjects"].present? && params["/subjects"]["search_token"].present?
       @subjects = Subject.search_by_short_name(params["/subjects"]["search_token"])
     else
-      @subjects = Subject.all
+      @subjects = Subject.paginate(:page => params[:page], :per_page => 5)
     end
   end
 
