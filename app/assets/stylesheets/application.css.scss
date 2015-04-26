@@ -113,3 +113,12 @@ form {
     border-color: $base-color;
   }
 }
+
+.table{
+  .btn-primary {
+    margin-bottom: 0;
+  }
+  > tbody > tr > td {
+    vertical-align: middle;
+  }
+}

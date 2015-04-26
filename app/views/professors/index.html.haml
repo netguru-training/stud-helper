@@ -1,6 +1,6 @@
 %h1 Listing professors
 
-%table
+%table.table.table-striped
   %thead
     %tr
       %th First name
@@ -16,11 +16,11 @@
         %td= professor.first_name
         %td= professor.last_name
         %td= professor.title
-        %td= link_to 'Show', professor
+        %td= button_to 'Show', professor
         - if admin?
-          %td= link_to 'Edit', edit_professor_path(professor)
-          %td= link_to 'Destroy', professor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %td= button_to 'Edit', edit_professor_path(professor)
+          %td= button_to 'Destroy', professor, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 - if admin?
-  = link_to 'New Professor', new_professor_path
+  = button_to 'New Professor', new_professor_path
