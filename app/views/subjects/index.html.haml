@@ -9,8 +9,7 @@
       %th
       %th
       %th
-
-  - if current_user && current_user.admin?
+  - if admin?
     = link_to "Add new subject", new_subject_path, class: "btn btn-primary"
 
   %tbody
