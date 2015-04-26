@@ -2,7 +2,13 @@
   <div class="row">
     <h3>Users</h3>
     <div class="column">
-      <table class="table">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Email</th>
+          </tr>
+        </thead>
         <tbody>
           <% users.each do |user| %>
             <tr>
