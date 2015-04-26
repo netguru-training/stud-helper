@@ -20,10 +20,13 @@ class CommentsController < ApplicationController
   def create
     comment.user = current_user
     comment.owner = fetch_owner
-    if comment.save
-      redirect_to(professor_path(comment.owner))
-    else
-      redirect_to root_path #WIP
+    respond_to do |format|
+      if comment.save
+        format.html { redirect_to(professor_path(comment.owner)) }
+      else
+        format.html { redirect_to root_path }
+      end
+      format.js {}
     end
   end
 

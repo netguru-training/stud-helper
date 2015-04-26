@@ -54,6 +54,10 @@ main {
   }
 }
 
+form {
+  margin-bottom: 10px;
+}
+
 .container {
   max-width: $site-width;
 }
@@ -93,4 +97,16 @@ main {
 
 .btn.btn-social:visited {
   color: white;
+}
+
+.btn-primary, .btn-primary:visited {
+  color: white;
+  background: $base-color;
+  border-color: $background-color;
+  margin-bottom: 10px;
+  &:hover, &:focus, &:active {
+    color: $base-color;
+    background: $background-color;
+    border-color: $base-color;
+  }
 }
