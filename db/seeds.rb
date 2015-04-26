@@ -12,11 +12,18 @@ User.create!(email: "admin@example.com",
   role: "admin")
 
 
+for i in (1..40) do
+	User.create!(email: "user#{i}@example.com", 
+  	name: "user#{i}", 
+  	password: "password",
+  	password_confirmation: "password",
+  	created_at: Random.rand(40).hours.ago)
+end
 
 
-(0..20).each do
+(0..40).each do
 	name = Faker::Lorem.sentence
-	short_name = Faker::Lorem.word
+	short_name = "#{Faker::Lorem.word}#{Random.rand(1000)}"
 	description = Faker::Lorem.paragraph
-	Subject.create!(name: name, short_name: short_name, description: description)
+	Subject.create!(name: name, short_name: short_name, description: description, created_at: Random.rand(40).hours.ago)
 end
