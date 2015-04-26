@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  before_action :is_signed_in, only: [:create, :new, :delete, :update]
   expose(:subjects)
   expose(:subject, attributes: :subject_params)
   respond_to :html
@@ -37,4 +38,8 @@ class SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit(:name, :short_name, :description)
   end 
+
+  def is_signed_in
+    redirect_to root_path unless current_user.admin?
+  end
 end
