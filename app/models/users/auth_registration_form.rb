@@ -7,11 +7,7 @@ module Users
     attribute :omniauth_hash, Hash[String => String]
 
     validate :email_uniqueness
-
-    def after_initialize
-      self.email = auth.email
-    end
-
+    
     def submit!
       return false unless valid?
       return false unless user.save
