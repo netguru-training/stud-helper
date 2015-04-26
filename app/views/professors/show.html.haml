@@ -10,13 +10,15 @@
     - professor.subjects.each do |subject|
       = subject.name
 
-%div
+.votes_box
+  Positive votes: 
+  = professor.vote_average + "%"
   .votes.likes
-    %span.votes-nr= professor.get_likes.size
+    = professor.get_likes.size
     %a{:href => upvote_professor_path(professor), :class => 'btn'}
       .span.glyphicon.glyphicon-thumbs-up
   .votes.dislikes
-    %span.votes-nr= professor.get_dislikes.size
+    = professor.get_dislikes.size
     %a{:href => downvote_professor_path(professor), :class => 'btn'}
       .span.glyphicon.glyphicon-thumbs-down
 
