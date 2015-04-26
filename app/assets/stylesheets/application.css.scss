@@ -102,16 +102,24 @@ form {
   color: white;
 }
 
-.btn-primary, .btn-primary:visited {
-  color: white;
-  background: $base-color;
-  border-color: $background-color;
+@mixin button-scheme($color1, $color2) {
+  color: $color2;
+  background: $color1;
+  border-color: $color2;
   margin-bottom: 10px;
   &:hover, &:focus, &:active {
-    color: $base-color;
-    background: $background-color;
-    border-color: $base-color;
+    color: $color1;
+    background: $color2;
+    border-color: $color1;
   }
+}
+
+.btn-primary, .btn-primary:visited {
+  @include button-scheme($base-color, $background-color);
+}
+
+.btn-default, .btn-default:visited {
+  @include button-scheme($background-color, $base-color);
 }
 
 .table{
