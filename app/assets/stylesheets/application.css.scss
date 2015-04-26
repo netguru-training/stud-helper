@@ -144,6 +144,12 @@ form {
   color: white;
 }
 
+.comments {
+  padding: 0 10px;
+  border: 1px dotted #888;
+  margin-bottom: 10px;
+}
+
 .comment {
   padding: 10px 0;
   + .comment {
@@ -163,17 +169,22 @@ form {
   }
 }
 
+.votes_box {
+  color: $base-color;
+  vertical-align: middle;
+  border-radius: $border-radius;
+  border: 1px solid $base-color;
+  background-color: $background-color;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
 .votes {
   color: white;
   border-radius: $border-radius;
   padding: 0 0 0 10px;
   display: inline-block;
   vertical-align: middle;
-  margin-bottom: 10px;
-  .votes-nr {
-    position:relative;
-    top: 2px;
-  }
   a {
     background:white;
     margin-bottom: 0;
