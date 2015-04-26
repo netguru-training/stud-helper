@@ -27,13 +27,7 @@
 %p
   %b Comments:
 
-- professor.comments.order('created_at DESC').each do |comment|
-  .comment
-    .comment_header
-      %span.comment_author= comment.user.name 
-      %span.comment_date= comment.created_at.strftime("%d-%m-%Y")
-    .comment_content= comment.content
-
+.comments= render professor.comments.order('created_at DESC')
 = button_to 'Edit', edit_professor_path(professor)
 
 = button_to 'Back', professors_path

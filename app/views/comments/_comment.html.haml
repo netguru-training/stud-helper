@@ -1,0 +1,5 @@
+.comment
+  .comment_header
+    %span.comment_author= comment.user.name 
+    %span.comment_date= comment.created_at.strftime("%H:%M, %d-%m-%Y")
+  .comment_content= comment.content

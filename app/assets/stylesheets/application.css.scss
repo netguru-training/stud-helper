@@ -45,6 +45,7 @@ main {
   > .container {
     background: $secondary-color;
     margin-top: 30px;
+    padding-bottom: 15px;
     box-shadow: $shadow;
     > h1, > h2, > h3 {
       font-size: 24px;
@@ -52,7 +53,7 @@ main {
       font-weight: bold;
       color: white;
       font: $font 16px;
-      margin: 0 -15px 10px;
+      margin: 0 -15px 15px;
       padding: 10px 15px;
       background: $base-color;
     }
@@ -103,6 +104,7 @@ form {
   color: white;
   background: $base-color;
   border-radius: $border-radius;
+  margin-top: 10px;
   padding: 0;
   a {
     color: white;
@@ -115,17 +117,17 @@ form {
       background: $background-color;
       text-decoration: none;
     }
-    .next_page {
-      border-top-right-radius: $border-radius;
-      border-bottom-right-radius: $border-radius;
-    }
+  }
+  .next_page {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
   em {
     padding: 5px 10px;
     color: $base-color;
     background-color: $background-color;
     font-style: normal;
-    border: 0;
+    border-bottom: 1px solid $background-color;
   }
   span {
     padding: 5px 10px;
@@ -228,6 +230,12 @@ form {
     vertical-align: middle;
     font-family: $font;
     font-size: 16px;
+  }
+  thead {
+    border-bottom: 2px solid #ddd;
+  }
+  th:empty {
+    display:none;
   }
 }
 

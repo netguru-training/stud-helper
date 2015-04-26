@@ -44,7 +44,7 @@ for i in (1..40) do
   for comment_number in (0..rand(10))
     Comment.create!(content: Faker::Lorem.sentence, 
       owner: prof, 
-      created_at: (24*comment_number + rand(24)).hours.ago,
+      created_at: (24*60*comment_number + Random.rand(24)*60 + Random.rand(60)).minutes.ago,
       user_id: rand(users_count) + 1)
   end
   for subject_number in (0..rand(5))

@@ -5,4 +5,5 @@ class Comment < ActiveRecord::Base
 
   validates :user, presence: true;
   validates :owner, presence: true;
+  validates :content, presence: true;
 end

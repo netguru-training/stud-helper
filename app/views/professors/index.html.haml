@@ -22,6 +22,5 @@
           %td= button_to 'Edit', edit_professor_path(professor)
           %td= button_to 'Destroy', professor, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 - if admin?
   = button_to 'New Professor', new_professor_path
