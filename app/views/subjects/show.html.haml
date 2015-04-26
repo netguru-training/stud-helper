@@ -10,10 +10,10 @@
   %b Description:
   = subject.description
 
-= button_to 'Edit', edit_subject_path(subject)
-= button_to 'Back', subjects_path
 %br
-=button_to 'Show all items', subject_subject_items_path(subject.id)
-
-=button_to "Add new subject item", new_subject_subject_item_path(subject.id)
+.pagination
+  = link_to 'Edit', edit_subject_path(subject)
+  = link_to 'Back', subjects_path
+  = link_to 'Show all items', subject_subject_items_path(subject.id)
+  = link_to "Add new subject item", new_subject_subject_item_path(subject.id)
 	

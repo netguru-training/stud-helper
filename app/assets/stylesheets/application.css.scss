@@ -52,7 +52,6 @@ main {
       font-family: $font;
       font-weight: bold;
       color: white;
-      font: $font 16px;
       margin: 0 -15px 15px;
       padding: 10px 15px;
       background: $base-color;
@@ -61,9 +60,7 @@ main {
 }
 
 form {
-  border: 1px dotted #888;
   margin-bottom: 10px;
-  padding: 10px;
   input.btn {
     margin-bottom: 0;
   }
@@ -100,11 +97,24 @@ form {
   }
 }
 
+.page_spread {
+  margin: 0 -15px 10px;
+  display: block;
+  padding: 10px 15px;
+  font-size: 24px;
+  font-family: $font;
+  font-weight: bold;
+  color: white;
+  margin: 15px -15px 15px;
+  background: $base-color;
+}
+
 .pagination {
   color: white;
   background: $base-color;
-  border-radius: $border-radius;
-  margin-top: 10px;
+  border-radius: 0;
+  margin: 0 -15px -15px;
+  display: block;
   padding: 0;
   a {
     color: white;
@@ -233,7 +243,8 @@ form {
   @include button-scheme($background-color, $base-color);
 }
 
-.table{
+.table {
+  margin: 10px -10px 0 -15px;
   .btn-primary {
     margin-bottom: 0;
   }
