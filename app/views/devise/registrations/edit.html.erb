@@ -16,6 +16,17 @@
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
 
     <%= f.file_field :picture %>
+
+    <p>
+      <label>
+        <% if current_user.picture? %>
+          <%= image_tag current_user.picture_url(:thumb) %>
+          <%= f.check_box :remove_picture %>
+          Remove picture
+        <% end %>
+      </label>
+    </p>
+
   </div>
 
   <div class="form-actions">

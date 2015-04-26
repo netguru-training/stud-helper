@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def user_params
-    accessible = [:name, :email, :picture]
+    accessible = [:name, :email, :picture, :remove_picture]
     accessible << [:password, :password_confirmation] if params[:user][:password].present?
     params.require(:user).permit(accessible)
   end
