@@ -32,7 +32,8 @@ subjects_count = Subject.count
 for i in (1..40) do
   prof = Professor.create!(first_name: Faker::Name.first_name, 
     last_name: Faker::Name.last_name, 
-    title: PROF_TITLES.sample.capitalize)
+    title: PROF_TITLES.sample.capitalize,
+    created_at: Random.rand(40).days.ago)
   for user_id in (1..users_count) do
     case rand(3)
     when 1

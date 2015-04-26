@@ -3,8 +3,11 @@
 
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <% if User.count != 0 %>
-	<%= line_chart User.group_by_hour(:created_at).count, library: {vAxis: {title: "Users"}} %>
+	<%= line_chart User.group_by_day(:created_at).count, library: {vAxis: {title: "Users"}, :colors => ["#00d660"]} %>
 <% end %>
 <% if Subject.count != 0 %>
-	<%= column_chart Subject.group_by_day(:created_at).count, library: {vAxis: {title: "Subjects"}} %>
+	<%= column_chart Subject.group_by_day(:created_at).count, library: {vAxis: {title: "Subjects"}, :colors => ["#00d660"]} %>
+<% end %>
+<% if Professor.count != 0 %>
+	<%= line_chart Professor.group_by_day(:created_at).count, library: {vAxis: {title: "Professors"}, :colors => ["#00d660"]} %>
 <% end %>
