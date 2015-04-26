@@ -27,7 +27,7 @@
 %p
   %b Comments:
 
-- professor.comments.each do |comment|
+- professor.comments.order('created_at DESC').each do |comment|
   .comment
     .comment_header
       %span.comment_author= comment.user.name 

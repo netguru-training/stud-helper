@@ -7,6 +7,10 @@ class ProfessorsController < ApplicationController
   expose(:comment) { Comment.new }
 
   respond_to :html
+
+  def index 
+    @professors = Professor.paginate(:page => params[:page], :per_page => 10)
+  end
   
   def create
     if professor.save

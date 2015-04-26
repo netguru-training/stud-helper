@@ -13,7 +13,7 @@
       %tr
         %td= subject_item.description
         %td= link_to subject_item.item.to_s.split("/").last, subject_item.item.url
-        - if current_user && current_user.admin?
+        - if admin?
           %td= link_to 'Delete', subject_subject_item_path(subject.id, subject_item.id), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
 
 %br

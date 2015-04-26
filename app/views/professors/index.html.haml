@@ -11,7 +11,8 @@
       %th
 
   %tbody
-    - professors.each do |professor|
+    = will_paginate
+    - @professors.each do |professor|
       %tr
         %td= professor.first_name
         %td= professor.last_name
