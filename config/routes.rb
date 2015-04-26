@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
+
   resources :professors do
     resources :comments
   end
@@ -8,12 +10,12 @@ Rails.application.routes.draw do
 
   resources :subjects do
     resources :subject_items do
-      
+
     end
   end
 
   root to: 'visitors#index'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

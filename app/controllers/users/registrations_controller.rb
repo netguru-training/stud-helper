@@ -58,10 +58,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def update
-    binding.pry
-    if user.update(user_params)
-      sign_in(user == current_user ? user : current_user, bypass: true)
-      redirect_to user, notice: 'Your profile was successfully updated.'
+    if resource.update(user_params)
+      sign_in(resource == current_user ? resource : current_user)
+      redirect_to resource, notice: 'Your profile was successfully updated.'
     else
       render action: 'edit'
     end
@@ -71,7 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_params
     accessible = [:name, :email, :picture]
-    accessible << [:password, :password_confirmation] if params[:user][:password].any?
+    accessible << [:password, :password_confirmation] if params[:user][:password].present?
     params.require(:user).permit(accessible)
   end
 
