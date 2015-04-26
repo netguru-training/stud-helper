@@ -19,6 +19,13 @@ for i in (1..40) do
     created_at: Random.rand(40).hours.ago)
 end
 
+(1..40).each do
+  name = Faker::Lorem.sentence
+  short_name = "#{Faker::Lorem.word}#{Random.rand(1000)}"
+  description = Faker::Lorem.paragraph
+  Subject.create!(name: name, short_name: short_name, description: description, created_at: Random.rand(40).days.ago)
+end
+
 PROF_TITLES = %w(professor doctor master engineer)
 users_count = User.count
 for i in (1..40) do
@@ -35,9 +42,3 @@ for i in (1..40) do
   end
 end
 
-(0..40).each do
-	name = Faker::Lorem.sentence
-	short_name = "#{Faker::Lorem.word}#{Random.rand(1000)}"
-	description = Faker::Lorem.paragraph
-	Subject.create!(name: name, short_name: short_name, description: description, created_at: Random.rand(40).days.ago)
-end
