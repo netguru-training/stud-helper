@@ -102,6 +102,25 @@ form {
   color: white;
 }
 
+.comment {
+  padding: 10px 0;
+  + .comment {
+    border-top: 1px dotted #888;
+  }
+  .comment_header {
+    padding-bottom: 5px;
+    .comment_author {
+      font-weight: bold;
+    }
+    .comment_date {
+      float:right;
+    }
+  }
+  .comment_content {
+    font-size: 14px;
+  }
+}
+
 .votes {
   color: white;
   border-radius: 4px;

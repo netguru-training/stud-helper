@@ -11,6 +11,7 @@ class UserDecorator < BaseDecorator
   end
 
   def username
-    name
+    return name if name.present?
+    email
   end
 end

@@ -27,15 +27,31 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   def facebook
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    all
+  end
 
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-    else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
+  def all
+    return sign_in_with_msg if user.present?
+
+    session[:omniauth_hash] = auth_hash.to_json
+    redirect_to new_from_omniauth_users_url
+  end
+
+  private
+
+  def auth_hash
+    # delete :extra from hash, to save the sessions space
+    request.env['omniauth.auth'].delete 'extra'
+    request.env['omniauth.auth']
+  end
+
+  def sign_in_with_msg
+    set_flash_message(:notice, :success, :kind => "social network")
+    sign_in_and_redirect user
+  end
+
+  def user
+    @user ||= Users::UserFromAuth.new(auth_hash).user
   end
 
 end

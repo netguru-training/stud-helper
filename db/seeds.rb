@@ -16,7 +16,7 @@ for i in (1..40) do
     name: "user#{i}", 
     password: "password",
     password_confirmation: "password",
-    created_at: Random.rand(40).hours.ago)
+    created_at: Random.rand(40).days.ago)
 end
 
 (1..40).each do
@@ -28,6 +28,7 @@ end
 
 PROF_TITLES = %w(professor doctor master engineer)
 users_count = User.count
+subjects_count = Subject.count
 for i in (1..40) do
   prof = Professor.create!(first_name: Faker::Name.first_name, 
     last_name: Faker::Name.last_name, 
@@ -39,6 +40,16 @@ for i in (1..40) do
     when 2
       prof.disliked_by User.find_by(id: user_id)
     end
+  end
+  for comment_number in (0..rand(10))
+    Comment.create!(content: Faker::Lorem.sentence, 
+      owner: prof, 
+      created_at: (24*comment_number + rand(24)).hours.ago,
+      user_id: rand(users_count) + 1)
+  end
+  for subject_number in (0..rand(5))
+    prof.subjects << Subject.find_by(id: rand(subjects_count) + 1)
+    prof.save!
   end
 end
 
