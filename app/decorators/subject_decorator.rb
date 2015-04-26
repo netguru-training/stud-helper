@@ -1,8 +1,5 @@
-class SubjectDecorator < Draper::Decorator
-  delegate_all
-
+class SubjectDecorator < BaseDecorator
   def full_name
     "#{name} (#{short_name})"
   end
-
 end

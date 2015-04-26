@@ -11,6 +11,11 @@ User.create!(email: "admin@example.com",
   password_confirmation: "admin123",
   role: "admin")
 
+for i in (1..40) do
+  Professor.create!(first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    title: "Professor")
+end
 
 for i in (1..40) do
 	User.create!(email: "user#{i}@example.com", 

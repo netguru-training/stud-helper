@@ -29,6 +29,7 @@ gem 'draper'
 gem 'pry'
 gem 'carrierwave'
 gem 'fog'
+gem 'mini_magick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -59,6 +60,8 @@ gem 'net-ssh'
 gem 'chartkick'
 gem 'groupdate'
 gem 'pg_search'
+gem 'bootstrap-social-rails'
+gem "font-awesome-rails"
 
 group :development do
   gem 'better_errors'

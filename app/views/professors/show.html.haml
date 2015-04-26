@@ -1,17 +1,16 @@
 %p#notice= notice
 
-%p
-  %b First name:
-  = professor.first_name
-%p
-  %b Last name:
-  = professor.last_name
-%p
-  %b Title:
-  = professor.title
-%p
-  %b Subjects:
-  = professor.subjects.join(', ') 
+%table.table
+  %tr
+    %th First name
+    %th Last name
+    %th Title
+    %th Subjects
+  %tr
+    %td= professor.first_name
+    %td= professor.last_name
+    %td= professor.title
+    %td= professor.subjects.join(', ') 
 
 %p
   %b Likes:
@@ -28,7 +27,7 @@
 
 %p
   %b Comments:
-%table
+%table#comments
   - professor.comments.each do |comment|
     %tr
       %td= comment.user.name
@@ -37,6 +36,6 @@
   %b Add comment:
   = render 'comments/form'
 
-= link_to 'Edit', edit_professor_path(professor)
-\|
-= link_to 'Back', professors_path
+= button_to 'Edit', edit_professor_path(professor)
+
+= button_to 'Back', professors_path

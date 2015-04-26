@@ -12,7 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-social
+ *= require font-awesome
  */
+
+
+$font-family-base: Roboto;
 
 $font: Roboto !important;
 
@@ -29,7 +34,7 @@ body {
 }
 
 body, body p {
-  font-size: 14px;
+  font-size: 16px !important;
   font-family: $font;
 }
 
@@ -50,6 +55,10 @@ main {
       background: $base-color;
     }
   }
+}
+
+form {
+  margin-bottom: 10px;
 }
 
 .container {
@@ -87,4 +96,47 @@ main {
   max-width: $site-width;
   margin: 30px auto 0;
   border-radius: 0;
+}
+
+.btn.btn-social:visited {
+  color: white;
+}
+
+@mixin button-scheme($color1, $color2) {
+  color: $color2;
+  background: $color1;
+  border-color: $color2;
+  margin-bottom: 10px;
+  &:hover, &:focus, &:active {
+    color: $color1;
+    background: $color2;
+    border-color: $color1;
+  }
+}
+
+.btn-primary, .btn-primary:visited {
+  @include button-scheme($base-color, $background-color);
+}
+
+.btn-default, .btn-default:visited {
+  @include button-scheme($background-color, $base-color);
+}
+
+.table{
+  .btn-primary {
+    margin-bottom: 0;
+  }
+  > tbody > tr > td {
+    vertical-align: middle;
+    font-family: $font;
+    font-size: 16px;
+  }
+}
+
+.inline-display {
+  a {
+    img {
+      display: inline;
+    }
+  }
 }
