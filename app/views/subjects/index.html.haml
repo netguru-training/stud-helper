@@ -12,7 +12,6 @@
       %th
       %th
   %tbody
-    = will_paginate
     - @subjects.each do |subject|
       %tr
         %td= subject.name
@@ -24,5 +23,4 @@
           %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
 - if admin?
   = link_to "Add new subject", new_subject_path, class: "btn btn-primary"
-
-%br
+= will_paginate

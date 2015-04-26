@@ -22,14 +22,14 @@
     %a{:href => downvote_professor_path(professor), :class => 'btn'}
       .span.glyphicon.glyphicon-thumbs-down
 
-%p
-  %b Add comment:
-  = render 'comments/form'
+.page_spread 
+  Add comment:
 
-%p
-  %b Comments:
+= render 'comments/form'
+
+.page_spread Comments:
 
 .comments= render professor.comments.order('created_at DESC')
-= button_to 'Edit', edit_professor_path(professor)
-
-= button_to 'Back', professors_path
+.pagination
+  = link_to 'Edit', edit_professor_path(professor)
+  = link_to 'Back', professors_path

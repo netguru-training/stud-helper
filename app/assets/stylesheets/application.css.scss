@@ -52,7 +52,6 @@ main {
       font-family: $font;
       font-weight: bold;
       color: white;
-      font: $font 16px;
       margin: 0 -15px 15px;
       padding: 10px 15px;
       background: $base-color;
@@ -61,11 +60,13 @@ main {
 }
 
 form {
-  border: 1px dotted #888;
   margin-bottom: 10px;
-  padding: 10px;
   input.btn {
     margin-bottom: 0;
+  }
+  input.form-control:focus {
+    border-color: $base-color;
+    box-shadow: 0 0 5px 0 $base-color;
   }
 }
 
@@ -100,11 +101,24 @@ form {
   }
 }
 
+.page_spread {
+  margin: 0 -15px 10px;
+  display: block;
+  padding: 10px 15px;
+  font-size: 24px;
+  font-family: $font;
+  font-weight: bold;
+  color: white;
+  margin: 15px -15px 15px;
+  background: $base-color;
+}
+
 .pagination {
   color: white;
   background: $base-color;
-  border-radius: $border-radius;
-  margin-top: 10px;
+  border-radius: 0;
+  margin: 0 -15px -15px;
+  display: block;
   padding: 0;
   a {
     color: white;
@@ -145,9 +159,7 @@ form {
 }
 
 .comments {
-  padding: 0 10px;
-  border: 1px dotted #888;
-  margin-bottom: 10px;
+  margin-top: -15px;
 }
 
 .comment {
@@ -233,7 +245,8 @@ form {
   @include button-scheme($background-color, $base-color);
 }
 
-.table{
+.table {
+  margin: 10px -10px 0 -15px;
   .btn-primary {
     margin-bottom: 0;
   }

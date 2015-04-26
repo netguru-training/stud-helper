@@ -7,11 +7,11 @@
       %th Last name
       %th Title
       %th
-      %th
-      %th
+      - if admin?
+        %th
+        %th
 
   %tbody
-    = will_paginate
     - @professors.each do |professor|
       %tr
         %td= professor.first_name
@@ -24,3 +24,4 @@
 
 - if admin?
   = button_to 'New Professor', new_professor_path
+= will_paginate
