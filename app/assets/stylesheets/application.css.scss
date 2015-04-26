@@ -29,6 +29,8 @@ $site-width: 900px;
 
 $shadow: 0 0 5px #ccc;
 
+$border-radius: 4px;
+
 body {
   background: $background-color;
 }
@@ -58,7 +60,12 @@ main {
 }
 
 form {
+  border: 1px dotted #888;
   margin-bottom: 10px;
+  padding: 10px;
+  input.btn {
+    margin-bottom: 0;
+  }
 }
 
 .container {
@@ -89,6 +96,39 @@ form {
       background: $base-color;
       color: white;
     }
+  }
+}
+
+.pagination {
+  color: white;
+  background: $base-color;
+  border-radius: $border-radius;
+  padding: 0;
+  a {
+    color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    height: 30px;
+    margin: 0;
+    &:hover, &:focus, &:active {
+      color: $base-color;
+      background: $background-color;
+      text-decoration: none;
+    }
+    .next_page {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+  em {
+    padding: 5px 10px;
+    color: $base-color;
+    background-color: $background-color;
+    font-style: normal;
+    border: 0;
+  }
+  span {
+    padding: 5px 10px;
   }
 }
 
@@ -123,7 +163,7 @@ form {
 
 .votes {
   color: white;
-  border-radius: 4px;
+  border-radius: $border-radius;
   padding: 0 0 0 10px;
   display: inline-block;
   vertical-align: middle;

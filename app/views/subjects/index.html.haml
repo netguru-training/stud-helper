@@ -2,6 +2,8 @@
 
 = render 'search_form'
 = @params
+- if admin?
+  = link_to "Add new subject", new_subject_path, class: "btn btn-primary"
 %table.table.table-striped
   %thead
     %tr
@@ -11,9 +13,6 @@
       %th
       %th
       %th
-  - if admin?
-    = link_to "Add new subject", new_subject_path, class: "btn btn-primary"
-
   %tbody
     %br
     = will_paginate
