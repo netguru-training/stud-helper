@@ -1,62 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+  prepend_before_action :require_no_authentication, only: [ :new, :new_from_omniauth, :create, :create_from_omniauth]
+  #layout 'devise/authorization'
+  expose(:auth_registration_form) { Users::AuthRegistrationForm.new auth_registration_form_params }
+  expose(:auth) { Users::OauthHash.new(omniauth_hash) }
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-  # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
-
-  # protected
-
-  # You can put the params you want to permit in the empty array.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
-
-  # You can put the params you want to permit in the empty array.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.for(:account_update) << :attribute
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
   def update
     if resource.update(user_params)
       sign_in(resource == current_user ? resource : current_user)
@@ -66,12 +13,37 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+
+  def create_from_omniauth
+    if auth_registration_form.submit!
+      set_flash_message :notice, :signed_up if is_flashing_format?
+      clear_omniauth_session
+      sign_up resource_name, auth_registration_form.user
+      redirect_to root_path
+    else
+      respond_with auth_registration_form, action: :new_from_omniauth
+    end
+  end
+
   private
 
   def user_params
     accessible = [:name, :email, :picture]
     accessible << [:password, :password_confirmation] if params[:user][:password].present?
     params.require(:user).permit(accessible)
+  end
+
+  def omniauth_hash
+    return {} unless session[:omniauth_hash]
+    JSON.parse(session[:omniauth_hash])
+  end
+
+  def clear_omniauth_session
+    session.delete :omniauth_hash
+  end
+
+  def auth_registration_form_params
+    params.fetch(:users_auth_registration_form, {}).permit(:email).merge(omniauth_hash: omniauth_hash)
   end
 
 end

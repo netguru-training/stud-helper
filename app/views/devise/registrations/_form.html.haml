@@ -1,0 +1,11 @@
+= simple_form_for(auth_registration_form, url: create_from_omniauth_users_path) do |f|
+  = f.error_notification
+
+  .form-inputs
+    - if auth.email.present?
+      = f.input :email, input_html: { value: auth.email }, readonly: true
+    - else
+      = f.input :email
+
+  .form-actions
+    = f.button :submit, value: 'Confirm'
