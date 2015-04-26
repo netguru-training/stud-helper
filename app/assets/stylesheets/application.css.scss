@@ -64,6 +64,10 @@ form {
   input.btn {
     margin-bottom: 0;
   }
+  input.form-control:focus {
+    border-color: $base-color;
+    box-shadow: 0 0 5px 0 $base-color;
+  }
 }
 
 .container {
@@ -155,9 +159,7 @@ form {
 }
 
 .comments {
-  padding: 0 10px;
-  border: 1px dotted #888;
-  margin-bottom: 10px;
+  margin-top: -15px;
 }
 
 .comment {
