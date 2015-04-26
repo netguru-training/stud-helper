@@ -7,7 +7,8 @@
   - if professor.subjects.count == 0 
     None
   - else
-    = professor.subjects.join(', ') 
+    - professor.subjects.each do |subject|
+      = subject.name
 
 %div
   .votes.likes
@@ -20,15 +21,18 @@
       .span.glyphicon.glyphicon-thumbs-down
 
 %p
-  %b Comments:
-%table#comments
-  - professor.comments.each do |comment|
-    %tr
-      %td= comment.user.name
-      %td= comment.content
-%p
   %b Add comment:
   = render 'comments/form'
+
+%p
+  %b Comments:
+
+- professor.comments.each do |comment|
+  .comment
+    .comment_header
+      %span.comment_author= comment.user.name 
+      %span.comment_date= comment.created_at.strftime("%d-%m-%Y")
+    .comment_content= comment.content
 
 = button_to 'Edit', edit_professor_path(professor)
 
