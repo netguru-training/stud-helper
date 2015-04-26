@@ -16,6 +16,9 @@
  *= require font-awesome
  */
 
+
+$font-family-base: Roboto;
+
 $font: Roboto !important;
 
 $base-color: #00d660;
@@ -31,7 +34,7 @@ body {
 }
 
 body, body p {
-  font-size: 14px;
+  font-size: 16px !important;
   font-family: $font;
 }
 
