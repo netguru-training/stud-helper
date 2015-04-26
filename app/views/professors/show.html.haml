@@ -1,29 +1,23 @@
+%h1= professor.first_name + " " + professor.last_name + ", " + professor.title
+
 %p#notice= notice
 
-%table.table
-  %tr
-    %th First name
-    %th Last name
-    %th Title
-    %th Subjects
-  %tr
-    %td= professor.first_name
-    %td= professor.last_name
-    %td= professor.title
-    %td= professor.subjects.join(', ') 
-
 %p
-  %b Likes:
-  = professor.get_likes.size
-%p
-  %b Dislikes:
-  = professor.get_dislikes.size
+  %b Subjects:
+  - if professor.subjects.count == 0 
+    None
+  - else
+    = professor.subjects.join(', ') 
 
 %div
-  %a{:href => upvote_professor_path(professor), :class => 'btn btn-default'}
-    .span.glyphicon.glyphicon-thumbs-up
-  %a{:href => downvote_professor_path(professor), :class => 'btn btn-default'}
-    .span.glyphicon.glyphicon-thumbs-down
+  .votes.likes
+    %span.votes-nr= professor.get_likes.size
+    %a{:href => upvote_professor_path(professor), :class => 'btn'}
+      .span.glyphicon.glyphicon-thumbs-up
+  .votes.dislikes
+    %span.votes-nr= professor.get_dislikes.size
+    %a{:href => downvote_professor_path(professor), :class => 'btn'}
+      .span.glyphicon.glyphicon-thumbs-down
 
 %p
   %b Comments:

@@ -102,6 +102,45 @@ form {
   color: white;
 }
 
+.votes {
+  color: white;
+  border-radius: 4px;
+  padding: 0 0 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 10px;
+  .votes-nr {
+    position:relative;
+    top: 2px;
+  }
+  a {
+    background:white;
+    margin-bottom: 0;
+    margin-left: 5px;
+  }
+}
+
+@mixin vote-button-scheme($color) {
+  background: $color;
+  a {
+    border-color: $color;
+    color: $color;
+    &:hover, &:focus, &:active {
+      border-color: white;
+      background: $color;
+      color: white;
+    }
+  }
+}
+
+.likes {
+  @include vote-button-scheme(green);
+}
+
+.dislikes {
+  @include vote-button-scheme(red);
+}
+
 @mixin button-scheme($color1, $color2) {
   color: $color2;
   background: $color1;
