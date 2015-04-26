@@ -1,0 +1,8 @@
+%h3 User
+.col-md-3.pull-left
+  = image_tag user.picture.url if user.picture?
+.col-md-9
+  %p
+    Name: #{user.name if user.name}
+  %p
+    Email: #{user.email if user.email}
