@@ -23,7 +23,14 @@ end
   name = Faker::Lorem.sentence
   short_name = "#{Faker::Lorem.word}#{Random.rand(1000)}"
   description = Faker::Lorem.paragraph
-  Subject.create!(name: name, short_name: short_name, description: description, created_at: Random.rand(40).days.ago)
+  subject = Subject.create!(name: name, short_name: short_name, description: description, created_at: Random.rand(40).days.ago)
+  (1..20).each do
+    desc = Faker::Lorem.sentence
+    subject_item = SubjectItem.new(description: desc, subject_id: subject.id)
+    subject_item.item = (File.open(File.join(Rails.root, "public/robots.txt"))) 
+    subject_item.save!
+    subject.subject_items << subject_item
+  end
 end
 
 PROF_TITLES = %w(professor doctor master engineer)
@@ -53,4 +60,3 @@ for i in (1..40) do
     prof.save!
   end
 end
-
