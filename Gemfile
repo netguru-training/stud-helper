@@ -50,13 +50,11 @@ gem 'haml-rails'
 gem 'pg'
 gem 'simple_form'
 gem 'decent_exposure'
-gem "binding_of_caller"
 gem 'ffaker'
 gem 'faker'
 gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'omniauth-facebook'
-gem 'dotenv-rails', :groups => [:development, :test]
 gem 'net-ssh'
 gem 'chartkick'
 gem 'groupdate'
@@ -81,6 +79,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :production do
