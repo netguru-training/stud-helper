@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe SubjectsController, type: :controller do
 	let (:user) { create(:user) }
 
@@ -10,6 +9,20 @@ RSpec.describe SubjectsController, type: :controller do
 			short_name: "asd",
 			description: "awdadawdawdwa"
 		}
+	end
+
+	context "user is not logged in" do
+		before do
+			# ticket: http:/pt/tikcket#hasdhdhsadhsda
+			# without sign_out command we weill receive undefinded method authenticate? and it should be fixed
+			sign_out user
+		end
+		describe "GET #new" do
+			it "should redirect to root_path" do
+				get :new
+				expect(response).to redirect_to root_path
+			end
+		end	
 	end
 
 	context "user is logged in" do
