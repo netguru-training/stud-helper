@@ -25,5 +25,5 @@ end
 	name = Faker::Lorem.sentence
 	short_name = "#{Faker::Lorem.word}#{Random.rand(1000)}"
 	description = Faker::Lorem.paragraph
-	Subject.create!(name: name, short_name: short_name, description: description, created_at: Random.rand(40).hours.ago)
+	Subject.create!(name: name, short_name: short_name, description: description, created_at: Random.rand(40).days.ago)
 end

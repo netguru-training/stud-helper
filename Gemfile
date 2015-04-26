@@ -56,6 +56,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth-facebook'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'net-ssh'
+gem 'chartkick'
+gem 'groupdate'
 
 group :development do
   gem 'better_errors'
