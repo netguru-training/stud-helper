@@ -1,5 +1,7 @@
 %h1 Listing subjects
 
+= render 'search_form'
+= @params
 %table.table.table-striped
   %thead
     %tr
@@ -13,7 +15,7 @@
     = link_to "Add new subject", new_subject_path, class: "btn btn-primary"
 
   %tbody
-    - subjects.each do |subject|
+    - @subjects.each do |subject|
       %tr
         %td= subject.name
         %td= subject.short_name

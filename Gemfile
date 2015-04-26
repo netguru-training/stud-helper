@@ -58,6 +58,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'net-ssh'
 gem 'chartkick'
 gem 'groupdate'
+gem 'pg_search'
 
 group :development do
   gem 'better_errors'

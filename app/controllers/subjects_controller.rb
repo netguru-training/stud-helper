@@ -1,8 +1,15 @@
 class SubjectsController < ApplicationController
-  # before_action :set_subject, only: [:show, :edit, :update, :destroy]
   expose(:subjects)
   expose(:subject, attributes: :subject_params)
   respond_to :html
+
+  def index
+    if params["/subjects"].present? && params["/subjects"]["search_token"].present?
+      @subjects = Subject.search_by_short_name(params["/subjects"]["search_token"])
+    else
+      @subjects = Subject.all
+    end
+  end
 
   def create
     self.subject = Subject.new(subject_params)
