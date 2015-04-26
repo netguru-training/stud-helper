@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Description
-      %th
+      %th Item
       %th
       %th
 
@@ -12,6 +12,6 @@
     - subject.subject_items.each do |subject|
       %tr
         %td= subject.description
-        %td= link_to subject.item.identifier, subject.item.url
+        %td= link_to subject.item.to_s.split("/").last, subject.item.url
 
 %br

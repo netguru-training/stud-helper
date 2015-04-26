@@ -2,5 +2,9 @@
 <p><%= link_to 'users:', users_path %> <%= User.count %> registered</p>
 
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<%= line_chart User.group_by_hour(:created_at).count, library: {vAxis: {title: "Users"}} %>
-<%= column_chart Subject.group_by_day(:created_at).count, library: {vAxis: {title: "Subjects"}} %>
+<% if User.count != 0 %>
+	<%= line_chart User.group_by_hour(:created_at).count, library: {vAxis: {title: "Users"}} %>
+<% end %>
+<% if Subject.count != 0 %>
+	<%= column_chart Subject.group_by_day(:created_at).count, library: {vAxis: {title: "Subjects"}} %>
+<% end %>
