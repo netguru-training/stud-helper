@@ -10,11 +10,7 @@
           </tr>
         </thead>
         <tbody>
-          <% users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
+        <%= render partial: "user", collection: users %>
         </tbody>
       </table>
     </div>

@@ -14,4 +14,8 @@ class UserDecorator < BaseDecorator
     return name if name.present?
     email
   end
+
+  def name_label
+    object.name.presence || "ANONYMOUS"
+  end
 end

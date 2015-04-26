@@ -1,2 +1,4 @@
-<td><%= button_to user.name, user %></td>
-<td><%= button_to user.email, user %></td>
+<tr>
+  <td><%= button_to user.decorate.name_label, user %></td>
+  <td><%= button_to user.email, user %></td>
+</tr>
